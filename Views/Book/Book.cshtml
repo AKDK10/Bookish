@@ -1,0 +1,10 @@
+@model Bookish.Models.BookViewModel
+
+@{
+    ViewData["Title"] = "Book page";
+}
+<h1>@ViewData["Title"]</h1>
+<h2>@Model.Title</h2>
+<img src="@Url.Content(Model.CoverUrl)" alt=@Model.Title />
+
+<p>Use this page to detail your site's privacy policy.</p>
