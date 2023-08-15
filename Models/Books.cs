@@ -1,0 +1,2 @@
+namespace Bookish.Models;
+

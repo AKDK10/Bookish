@@ -13,10 +13,29 @@ public class BookController : Controller
     {
         _logger = logger;
     }
-    [HttpGet("index")]
+    [HttpGet("")]
     public IActionResult Index()
     {
-        return View();
+        var books = new List<BookViewModel>()
+        {
+            new BookViewModel( isbn: "9780356503820",
+            title:"The Eye Of The World",
+            coverUrl: "https://m.media-amazon.com/images/I/51nDTUXFvaL._SX316_BO1,204,203,200_.jpg"
+            ),
+
+            new BookViewModel( isbn: "9780356503820",
+            title:"The Eye Of The World",
+            coverUrl: "https://m.media-amazon.com/images/I/51nDTUXFvaL._SX316_BO1,204,203,200_.jpg"
+            ),
+            new BookViewModel( isbn: "9780356503820",
+            title:"The Eye Of The World",
+            coverUrl: "https://m.media-amazon.com/images/I/51nDTUXFvaL._SX316_BO1,204,203,200_.jpg"
+            )
+
+
+        };
+        return View(books);
+
     }
 
     [HttpGet("Book")]
@@ -29,4 +48,7 @@ public class BookController : Controller
         );
         return View(book);
     }
+
+
+    
 }

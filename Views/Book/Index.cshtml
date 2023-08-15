@@ -1,8 +1,22 @@
+@model List<BookViewModel>
+
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Books";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to AA Library</h1>
+    <p>A selection of our books</a>.</p>
+
+    @foreach(var book in Model)
+    {
+        <ul>
+            <li>
+                <p>@book.Title</p>
+                <img src="@Url.Content(book.CoverUrl)" alt=@book.Title />
+                <button>Borrow</button>
+            </li>
+
+        </ul>
+    }
 </div>
