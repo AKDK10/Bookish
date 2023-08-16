@@ -4,7 +4,7 @@ using Bookish.Models;
 
 namespace Bookish.Controllers;
 
-[Route("Book")]
+[Route("Books")]
 public class BookController : Controller
 {
     private readonly ILogger<BookController> _logger;

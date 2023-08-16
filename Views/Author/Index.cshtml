@@ -1,0 +1,40 @@
+@model List<AuthorViewModel>
+
+@{
+    ViewData["Title"] = "Authors";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to AA Library</h1>
+    <p>Discover our famous authors</p>
+
+</div>
+
+
+
+
+<div class="container text-center">
+    <div class="row">
+        @foreach (var author in Model)
+        {
+            <div class="col-sm">
+                <div class="card">
+                    <img src="@Url.Content(author.PhotoUrl)" class="card-img-top" alt=@author.Name />
+                    <div class="card-body">
+                        <h5 class="card-title">@author.Name</h5>
+                        <h6>@author.DateOfBirth</h6>
+                        <p class="card-text">@author.Biography</p>
+                        <a asp-controller="Authors" asp-action="Author">Read More</a>
+
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+        }
+    </div>
+</div>
+

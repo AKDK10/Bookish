@@ -1,0 +1,11 @@
+@model Bookish.Models.AuthorViewModel
+
+@{
+    ViewData["Title"] = "Author";
+}
+<h1>@ViewData["Title"]</h1>
+<h2>@Model.Name</h2>
+<img src="@Url.Content(Model.PhotoUrl)" alt=@Model.Name />
+
+<h3>@Model.DateOfBirth</h3>
+<p>@Model.Biography</p>
