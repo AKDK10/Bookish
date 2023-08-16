@@ -9,7 +9,6 @@ public class AuthorViewModel
     public string? Biography { get; set; }
 
 
-
     public AuthorViewModel(int authorId, string name, string photoUrl, string dateOfBirth, string biography)
     {
         AuthorId = authorId;
