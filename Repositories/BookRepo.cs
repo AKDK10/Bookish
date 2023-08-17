@@ -15,7 +15,6 @@ public class BookRepo : IBookRepo
     public BookRepo(BookishContext context)
     {
         _context = context;
-
     }
 
     public List<BookModel> GetAllBooks()

@@ -58,10 +58,11 @@ public class BookController : Controller
 
         // };
 
-        var books = _bookRepo.GetAllBooks().Select(b => new BookViewModel(isbn: b.Isbn,
-        title: b.Title,
-        coverUrl: b.CoverUrl,
-        authors: b.Authors.Select(a => new AuthorViewModel(authorId: a.Id.Value, name: a.Name, photoUrl: a.PhotoUrl, dateOfBirth: a.DateOfBirth, biography: a.Biography)).ToList()
+        var books = _bookRepo.GetAllBooks().Select(b => new BookViewModel(
+            isbn: b.Isbn,
+            title: b.Title,
+            coverUrl: b.CoverUrl,
+            authors: b.Authors.Select(a => new BookViewModel.BookAuthorViewModel(id: a.Id.Value, name: a.Name)).ToList()
         )).ToList();
         return View(books);
 
@@ -86,13 +87,15 @@ public class BookController : Controller
 
 
         var book = _bookRepo.GetBookByIsbn("9780356503820");
-        return View(new BookViewModel(isbn: book.Isbn,
-        title: book.Title,
-        coverUrl: book.CoverUrl,
-        authors: book.Authors.Select(a => new AuthorViewModel(authorId: a.Id.Value, name: a.Name, photoUrl: a.PhotoUrl, dateOfBirth: a.DateOfBirth, biography: a.Biography)).ToList()
-        ));
+
+        var returnBook = new BookViewModel(
+            isbn: book.Isbn,
+            title: book.Title,
+            coverUrl: book.CoverUrl,
+            authors: book.Authors.Select(a => new BookViewModel.BookAuthorViewModel(id: a.Id.Value, name: a.Name)).ToList()
+            );
+
+        return View(returnBook);
     }
-
-
 
 }
