@@ -1,13 +1,17 @@
 using Bookish;
-using Bookish.Models;
 using Bookish.Models.Database;
 
 using Microsoft.EntityFrameworkCore;
 
-public class BookRepo
+public interface IBookRepo
+{
+    List<BookModel> GetAllBooks();
+    BookModel GetBookByIsbn(string isbn);
+}
+
+public class BookRepo : IBookRepo
 {
     private readonly BookishContext _context;
-
     public BookRepo(BookishContext context)
     {
         _context = context;

@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace Bookish.Models;
+namespace Bookish.Models.Database;
 
 [PrimaryKey("Isbn")]
 public class BookModel
