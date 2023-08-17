@@ -24,7 +24,7 @@
                         <h5 class="card-title">@author.Name</h5>
                         <h6>@author.DateOfBirth</h6>
                         <p class="card-text">@author.Biography</p>
-                        <a asp-controller="Authors" asp-action="Author">Read More</a>
+                        <a asp-controller="Authors" asp-action="Author" asp-route-id="@author.Id">Read More</a>
 
                     </div>
                 </div>

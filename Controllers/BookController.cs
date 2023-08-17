@@ -69,7 +69,7 @@ public class BookController : Controller
     }
 
     [HttpGet("Book")]
-    public IActionResult Book()
+    public IActionResult Book(string isbn)
     {
         // var book = new BookViewModel(
         //     isbn: "9780356503820",
@@ -86,14 +86,14 @@ public class BookController : Controller
         // );
 
 
-        var book = _bookRepo.GetBookByIsbn("9780356503820");
+        var book = _bookRepo.GetBookByIsbn(isbn);
 
         var returnBook = new BookViewModel(
-            isbn: book.Isbn,
-            title: book.Title,
-            coverUrl: book.CoverUrl,
-            authors: book.Authors.Select(a => new BookViewModel.BookAuthorViewModel(id: a.Id.Value, name: a.Name)).ToList()
-            );
+        isbn: book.Isbn,
+        title: book.Title,
+        coverUrl: book.CoverUrl,
+        authors: book.Authors.Select(a => new BookViewModel.BookAuthorViewModel(id: a.Id.Value, name: a.Name)).ToList()
+        );
 
         return View(returnBook);
     }

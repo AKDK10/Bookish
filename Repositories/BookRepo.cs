@@ -26,6 +26,6 @@ public class BookRepo : IBookRepo
 
     public BookModel GetBookByIsbn(string isbn)
     {
-        return _context.Books.Where(b => b.Isbn == isbn).Single();
+        return _context.Books.Include(b => b.Authors).Where(b => b.Isbn == isbn).Single();
     }
 }

@@ -20,9 +20,9 @@ public class AuthorViewModel
     public string? Biography { get; set; }
     public List<BookViewModel>? Books { get; set; }
 
-    public AuthorViewModel(int authorId, string name, string photoUrl, string dateOfBirth, string biography)
+    public AuthorViewModel(int id, string name, string photoUrl, string dateOfBirth, string biography)
     {
-        Id = authorId;
+        Id = id;
         Name = name;
         PhotoUrl = photoUrl;
         DateOfBirth = dateOfBirth;

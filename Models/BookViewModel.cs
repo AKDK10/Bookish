@@ -1,3 +1,5 @@
+using Bookish.Models.Database;
+
 namespace Bookish.Models;
 
 public class BookViewModel
@@ -28,6 +30,14 @@ public class BookViewModel
         Title = title;
         CoverUrl = coverUrl;
         Authors = new List<BookAuthorViewModel>();
+
+    }
+    public BookViewModel(BookModel book)
+    {
+        Isbn = book.Isbn;
+        Title = book.Title;
+        CoverUrl = book.CoverUrl;
+        Authors = book.Authors.Select(a => new BookAuthorViewModel(a.Id.Value, a.Name)).ToList();
 
     }
 
