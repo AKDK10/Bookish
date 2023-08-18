@@ -48,7 +48,7 @@ public class AuthorController : Controller
 
     }
 
-    [HttpGet("Author")]
+    [HttpGet("Author/{id}")]
     public IActionResult Author(int id)
     {
         var author = _authorRepo.GetAuthorById(id);
